@@ -1,16 +1,10 @@
 package pages;
 
- /**
- * -----------------------------------------------------------------------------
- * CLASS NAME   : BasePage
- * AUTHOR       : Mustafa.Sengul
- * CREATED DATE : 12.12.2025
- * DESCRIPTION  : [Kısa açıklama yazılabilir]
- * -----------------------------------------------------------------------------
- * UPDATE LOG   : 
- *   - [TARİH] : [KULLANICI ADI] - [Yapılan değişiklik açıklaması]
- * -----------------------------------------------------------------------------
- */
- 
+import com.codeborne.selenide.Selenide;
+
 public class BasePage {
+
+    public void openUrl(String url) {
+        Selenide.open(url);
+    }
 }
