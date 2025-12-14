@@ -1,0 +1,37 @@
+package base;
+
+import com.codeborne.selenide.Configuration;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import java.io.IOException;
+
+import static com.codeborne.selenide.Selenide.*;
+import static java.nio.channels.SocketChannel.open;
+
+public class TestBase {
+
+    @BeforeMethod
+    public void setup() throws IOException {
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        Configuration.timeout = 30000;
+        Configuration.pageLoadTimeout = 60000;
+        Configuration.browserCapabilities = options;
+        Configuration.headless = false;
+
+        open();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        closeWebDriver();
+    }
+}
