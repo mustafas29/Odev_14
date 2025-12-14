@@ -1,16 +1,20 @@
 package pages;
 
- /**
- * -----------------------------------------------------------------------------
- * CLASS NAME   : ButtonsPage
- * AUTHOR       : Mustafa.Sengul
- * CREATED DATE : 12.12.2025
- * DESCRIPTION  : [Kısa açıklama yazılabilir]
- * -----------------------------------------------------------------------------
- * UPDATE LOG   : 
- *   - [TARİH] : [KULLANICI ADI] - [Yapılan değişiklik açıklaması]
- * -----------------------------------------------------------------------------
- */
- 
-public class ButtonsPage {
+import com.codeborne.selenide.SelenideElement;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.visible;
+
+public class ButtonsPage extends BasePage {
+    // More specific selector for the Click Me button
+    private final SelenideElement clickMeButton = $("button.btn-primary");
+    private final SelenideElement clickMessage = $("#dynamicClickMessage");
+
+    public void clickClickMe() {
+        System.out.println("Clicking the 'Click Me' button...");
+        clickMeButton.shouldBe(visible).click();
+    }
+
+    public String getMessage() {
+        return clickMessage.shouldBe(visible).getText();
+    }
 }
