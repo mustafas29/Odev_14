@@ -1,16 +1,15 @@
 package pages;
 
- /**
- * -----------------------------------------------------------------------------
- * CLASS NAME   : WebTablesPage
- * AUTHOR       : Mustafa.Sengul
- * CREATED DATE : 12.12.2025
- * DESCRIPTION  : [Kısa açıklama yazılabilir]
- * -----------------------------------------------------------------------------
- * UPDATE LOG   : 
- *   - [TARİH] : [KULLANICI ADI] - [Yapılan değişiklik açıklaması]
- * -----------------------------------------------------------------------------
- */
- 
-public class WebTablesPage {
+import com.codeborne.selenide.SelenideElement;
+import static com.codeborne.selenide.Selenide.$;
+
+public class WebTablesPage extends BasePage {
+
+    private final SelenideElement addButton = $("#addNewRecordButton");
+    private final SelenideElement editButton = $("span[title='Edit']");
+    private final SelenideElement firstCell = $("div.rt-td");
+
+    public void clickAdd() { addButton.click(); }
+    public void clickEdit() { editButton.click(); }
+    public String getFirstCellText() { return firstCell.getText(); }
 }
