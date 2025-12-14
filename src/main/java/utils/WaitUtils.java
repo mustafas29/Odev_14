@@ -1,16 +1,14 @@
-package utils;
+import com.codeborne.selenide.SelenideElement;
 
- /**
- * -----------------------------------------------------------------------------
- * CLASS NAME   : WaitUtils
- * AUTHOR       : Mustafa.Sengul
- * CREATED DATE : 12.12.2025
- * DESCRIPTION  : [Kısa açıklama yazılabilir]
- * -----------------------------------------------------------------------------
- * UPDATE LOG   : 
- *   - [TARİH] : [KULLANICI ADI] - [Yapılan değişiklik açıklaması]
- * -----------------------------------------------------------------------------
- */
- 
+import static com.codeborne.selenide.Condition.visible;
+
 public class WaitUtils {
+
+    public static void waitForVisible(SelenideElement element) {
+        element.shouldBe(visible);
+    }
+
+    public static void waitForClickable(SelenideElement element) {
+        element.shouldBe(visible);
+    }
 }
